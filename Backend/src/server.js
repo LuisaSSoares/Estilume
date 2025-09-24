@@ -3,13 +3,9 @@ const app = express();
 const port = 3100;
 const db = require("./db_config");
 const cors = require("cors");
-const bcrypt = require('bcrypt');
-const saltRounds = 10; 
 const jwt = require('jsonwebtoken');
 const jwtSecret = process.env.JWT_SECRET || 'senhajwt'
 const multer = require('multer')
-
-const { encrypt, decrypt } = require('./cryptoHelper');
 
 app.use(express.json());
 app.use(cors());
@@ -66,16 +62,15 @@ app.post("/usuario/create", async (req, res) => {
   }
 
   try {
-    const hashedPassword = await bcrypt.hash(senha, saltRounds);
 
     const sql = "INSERT INTO usuarios (nome, email, senha, tipo) VALUES (?, ?, ?, ?)";
-    db.query(sql, [nome, email, hashedPassword, tipo], (err, result) => {
+    db.query(sql, [nome, email, senha, tipo], (err, result) => {
       if (err) {
         console.error("Erro ao criar usuário:", err);
         return res.status(500).json({ success: false, message: "Erro ao criar usuário." });
       }
 
-      const token = jwt.sign({ id: result.insertId, email, tipo }, jwtSecret, { expiresIn: "5h" });
+      const token = jwt.sign({ id: result.insertId, email, tipo}, jwtSecret, { expiresIn: "5h" });
       res.status(201).json({
         success: true,
         message: "Usuário criado com sucesso.",
@@ -100,11 +95,11 @@ app.post("/usuario/login", (req, res) => {
   db.query(sql, [email], async (err, results) => {
     if (err) return res.status(500).json({ success: false, message: "Erro no servidor." });
     if (results.length === 0) return res.status(401).json({ success: false, message: "Email ou senha incorretos." });
-
+    
     const usuario = results[0];
-    const match = await bcrypt.compare(senha, usuario.senha);
-    if (!match) return res.status(401).json({ success: false, message: "Email ou senha incorretos." });
-
+    if (senha !== usuario.senha) {
+      return res.status(401).json({ success: false, message: "Email ou senha incorretos." });
+    }
     const token = jwt.sign({ id: usuario.id, email: usuario.email, tipo: usuario.tipo }, jwtSecret, { expiresIn: "5h" });
 
     res.json({ success: true, message: "Login realizado com sucesso.", token, usuario });

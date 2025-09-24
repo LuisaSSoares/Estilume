@@ -1,0 +1,173 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Nunito", sans-serif;
+}
+body {
+    display: flex;
+    justify-content: center; 
+    align-items: center;    
+    height: 100vh;          
+    margin: 0;               
+  }
+.background {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    overflow: hidden;
+  }
+  
+  .background::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url('components/logoBg.jpg');
+    background-size: cover;
+    background-position: center;
+    transform: scale(1.1);
+    z-index: -2;
+  }
+  .containerLogin {
+    display: flex;
+    height: 600px;
+    width: 90%;
+    background-color: #EFA710;
+    border-radius: 20px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+  }
+
+  .leftSlide {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+    clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%);
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+
+  }
+
+  .leftSlide img {
+    display: block;  
+    max-width: 100%;  
+    height: auto;
+  }
+  .leftSlide img.logo {
+    width: 180px;   
+    margin-bottom: 30px;
+  }
+  
+  .leftSlide img.illustration {
+    width: 100%;     
+    margin: 0 auto;   
+  }
+
+.rightSlide {
+  width: 50%;
+  height: 100%;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  margin-top: 150px;
+  flex-direction: column;
+  text-align: center;
+}
+
+.rightSlide h2{
+    color: white;
+    font-size: 40px;
+}
+
+.rightSlide h1{
+    color: white;
+    font-family: "Saira Stencil One", sans-serif;
+    text-transform: uppercase;
+    font-size: 40px;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+  }
+  
+  .campo {
+    position: relative;
+    max-width: 360px;
+    width: 100%;
+    margin: 0 auto 40px auto;
+    
+  }
+  
+  .campo input {
+    width: 100%;
+    padding: 12px 12px;
+    border: 1px solid #CCCCCC;
+    border-radius: 20px;
+    font-size: 14px;
+    box-shadow: 2px 2px 4px rgba(95, 145, 4, 0.3);
+    background: white;
+    color: #000;
+    transition: border-color 0.4s ease, box-shadow 0.4s ease;
+    outline: none;
+  }
+  
+  .campo label {
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    color: #aaa;
+    font-size: 14px;
+    pointer-events: none;
+    background-color: white;
+    padding: 0 6px;
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+  }
+  
+  .campo input:focus + label,
+  .campo input:not(:placeholder-shown) + label {
+    top: -1px;
+    left: 12px;
+    font-size: 12px;
+    font-weight: bolder;
+    color: white;
+    background-color: #E36920;
+    border-radius: 12px;
+    padding: 2px 8px;
+    width: auto;
+    max-width: 100%;
+    white-space: nowrap;
+  }
+  
+  .campo input:focus {
+    border-color: #E36920;
+    box-shadow: 0 0 5px 2px #E36920;
+  }
+
+.btnEntrar{
+    width: 150px;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background-color, font-size 0.4s ease;
+    margin-bottom: 40px;
+    background-color: #E36920;
+    color: white;
+}
+
+.btnEntrar:hover {
+    background-color: #b65d2a; 
+    font-size: 16px;
+    color: #fff;
+  }
