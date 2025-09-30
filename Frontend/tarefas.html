@@ -41,34 +41,36 @@
                 </div>
                 
                 <div class="mainContentArea">
-                    <div class="userContainer">
-                        <img src="./icons/person-circle (1).svg" alt="foto de perfil" id="perfil">
-                        <div>
-                            <p id="email">oioi</p>
-                            <p id="tipoPerfil">oioi</p>
-                            <button type="button" id="editProfile">Editar foto de perfil</button>
+                    <div class="headerContent">
+                        <div class="sectionNameContainer">
+                            <div>
+                                <h1>Tarefas:</h1>
+                                <p id="turma"></p>
+                            </div>
+                        </div>
+                        <div class="userContainer userContainerSections">
+                            <img src="./icons/person-circle (1).svg" alt="foto de perfil" id="perfil">
+                            <div>
+                                <p id="email">oioi</p>
+                                <p id="tipoPerfil">oioi</p>
+                                <button type="button" id="editProfile">Editar foto de perfil</button>
+                            </div>
                         </div>
                     </div>
-                    <div class="helloUserContainer">
-                        <img src="./components/homeIlustration.png" alt="">
-                        <div>
-                            <h1></h1>
-                            <p>Pronto para começar o dia?</p>
-                        </div>
-                    </div>
-                    <div class="turmaContainer">
-                        <div class="turmaEstudante">
-                            <p id="turma">Turma:</p> 
-                        </div>
-                        <p>Disciplinas:</p>
-                        <div class="disciplinaContainer">
-                            <a href="" class="disciplina">
-                                <img src="./components/logoBg.jpg" alt="">
-                                <p id="disciplina">História</p>
-                                <hr>
-                                <p>Ver notas</p>                                    
-                            </a>
-                        </div>
+                    <div class="containerSection">
+                        <div class="navBar" data-scope="perfil">
+                            <a href="#pendentes" data-tab="pendentes" class="active">Pendente</a>
+                            <a href="#atraso" data-tab="atraso">Em atraso</a>
+                            <a href="#concluidas" data-tab="concluidas">Concluidas</a>
+                            <span class="indicator"></span> 
+                        </div> 
+                        
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                </div>
+
+                      </div>
                     </div>
                 </div>
         </div>
