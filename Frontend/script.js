@@ -21,6 +21,22 @@
 //     }
 // });
 
+document.addEventListener("DOMContentLoaded", () => {
+  let currentPath = window.location.pathname.split("/").pop(); 
+  if (currentPath === "" || currentPath === "index.html") {
+    currentPath = "index.html"; // força index.html como padrão
+  }
+
+  const navLinks = document.querySelectorAll(".containerMenu .navSections a");
+
+  navLinks.forEach(link => {
+    const linkPath = link.getAttribute("href").replace("./", "");
+    if (linkPath === currentPath) {
+      link.classList.add("active");
+    }
+  });
+});
+//Animação de navegação com indicator
 const nav = document.querySelector('.navBar');
 const links = Array.from(nav.querySelectorAll('a'));
 let indicator = nav.querySelector('.indicator');
@@ -40,16 +56,16 @@ function moveIndicatorTo(link) {
 }
 
 // Ativa a aba clicada
-function setActive(tabName) {
-    links.forEach(a => a.classList.toggle('active', a.dataset.tab === tabName));
-    const link = links.find(a => a.dataset.tab === tabName);
+function setActiveTurma(tabNameTurma) {
+    links.forEach(a => a.classList.toggle('active', a.dataset.tab === tabNameTurma));
+    const link = links.find(a => a.dataset.tab === tabNameTurma);
     moveIndicatorTo(link);
   
     // Mostra só o container referente à aba
     document.querySelectorAll('.alunosProfsContainer').forEach(c => c.style.display = 'none');
-    if (tabName === 'alunos') {
+    if (tabNameTurma === 'alunos') {
       document.getElementById('alunosContainer').style.display = 'block';
-    } else if (tabName === 'professores') {
+    } else if (tabNameTurma === 'professores') {
       document.getElementById('profsContainer').style.display = 'block';
     }
   }
@@ -58,7 +74,7 @@ function setActive(tabName) {
 links.forEach(a => {
   a.addEventListener('click', e => {
     e.preventDefault();
-    setActive(a.dataset.tab);
+    setActiveTurma(a.dataset.tab);
   });
 });
 
@@ -67,3 +83,46 @@ window.addEventListener('load', () => {
   const activeLink = nav.querySelector('a.active');
   moveIndicatorTo(activeLink);
 });
+
+const navTarefas = document.querySelector('.navBar[data-scope="perfil"]'); // seleciona só a nav de tarefas
+if (navTarefas) {
+  const linksTarefas = Array.from(navTarefas.querySelectorAll('a'));
+  const indicatorTarefas = navTarefas.querySelector('.indicator');
+
+  function moveIndicatorTarefas(link) {
+    if (!link) return;
+    const navRect = navTarefas.getBoundingClientRect();
+    const linkRect = link.getBoundingClientRect();
+    const left = linkRect.left - navRect.left + navTarefas.scrollLeft;
+    const width = linkRect.width;
+    requestAnimationFrame(() => {
+      indicatorTarefas.style.left = left + 'px';
+      indicatorTarefas.style.width = width + 'px';
+    });
+  }
+
+  function setActiveTarefas(tabName) {
+    // Atualiza a classe active apenas nesta nav
+    linksTarefas.forEach(a => a.classList.toggle('active', a.dataset.tab === tabName));
+    const link = linksTarefas.find(a => a.dataset.tab === tabName);
+    moveIndicatorTarefas(link);
+
+    // Mostra apenas o container correspondente
+    document.querySelectorAll('.tarefasContainer').forEach(c => c.style.display = 'none');
+    if (tabName === 'pendentes') document.getElementById('pendentesContainer').style.display = 'block';
+    else if (tabName === 'atraso') document.getElementById('atrasoContainer').style.display = 'block';
+    else if (tabName === 'concluidas') document.getElementById('concluidasContainer').style.display = 'block';
+  }
+
+  // Clique nas abas
+  linksTarefas.forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      setActiveTarefas(a.dataset.tab);
+    });
+  });
+
+  // Inicializa com a aba ativa
+  const activeLinkTarefas = navTarefas.querySelector('a.active');
+  if (activeLinkTarefas) setActiveTarefas(activeLinkTarefas.dataset.tab);
+}

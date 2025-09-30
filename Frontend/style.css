@@ -1,460 +1,459 @@
-  *{
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Nunito", sans-serif;
-  }
-  body {
-      display: flex;
-      justify-content: center; 
-      align-items: center;    
-      height: 100vh;          
-      margin: 0;           
-    }
-  .background {
-      position: fixed;
-      height: 100%;
-      width: 100%;
-      z-index: -1;
-      overflow: hidden;
-    }
-    
-    .background::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url('./components/logoBg.jpg');
-      background-size: cover;
-      background-position: center;
-      transform: scale(1.1);
-      z-index: -2;
-    }
-    .containerLogin {
-      display: flex;
-      height: 90%;
-      width: 90%;
-      background-color: #EFA710;
-      border-radius: 20px;
-      box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
-    }
-
-    .leftSlide {
-      position: relative;
-      width: 50%;
-      background-color: white;
-      display: flex;
-      flex-direction: column;
-      box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
-      clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%);
-      border-top-left-radius: 12px;
-      border-bottom-left-radius: 12px;
-
-    }
-
-    .leftSlide img {
-      display: block;  
-      max-width: 100%;  
-      height: auto;
-    }
-    .leftSlide img.logo {
-      width: 180px;   
-      margin-bottom: 30px;
-    }
-    
-    .leftSlide img.illustration {
-      width: 100%;     
-      margin: 0 auto;   
-    }
-
-  .rightSlide {
-    width: 50%;
-    border-top-right-radius: 12px;
-    border-bottom-right-radius: 12px;
-    overflow: hidden;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Nunito", sans-serif;
+}
+body {
     display: flex;
-    margin-top: 100px;
-    flex-direction: column;
-    text-align: center;
+    justify-content: center; 
+    align-items: center;    
+    height: 100vh;          
+    margin: 0;           
   }
-
-  .rightSlide h2{
-      color: white;
-      font-size: 40px;
-  }
-
-  .rightSlide h1{
-      color: white;
-      font-family: "Saira Stencil One", sans-serif;
-      text-transform: uppercase;
-      font-size: 40px;
-  }
-  .form {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-top: 15px;
-    }
-    
-    .campo {
-      position: relative;
-      max-width: 360px;
-      width: 100%;
-      margin: 0 auto 40px auto;
-      
-    }
-    
-    .campo input {
-      width: 100%;
-      padding: 12px 12px;
-      border: 1px solid #CCCCCC;
-      border-radius: 20px;
-      font-size: 14px;
-      box-shadow: 2px 2px 4px rgba(95, 145, 4, 0.3);
-      background: white;
-      color: #000;
-      transition: border-color 0.4s ease, box-shadow 0.4s ease;
-      outline: none;
-    }
-    
-    .campo label {
-      position: absolute;
-      top: 50%;
-      left: 16px;
-      color: #aaa;
-      font-size: 14px;
-      pointer-events: none;
-      background-color: white;
-      padding: 0 6px;
-      transform: translateY(-50%);
-      transition: all 0.3s ease;
-    }
-    
-    .campo input:focus + label,
-    .campo input:not(:placeholder-shown) + label {
-      top: -1px;
-      left: 12px;
-      font-size: 12px;
-      font-weight: bolder;
-      color: white;
-      background-color: #E36920;
-      border-radius: 12px;
-      padding: 2px 8px;
-      width: auto;
-      max-width: 100%;
-      white-space: nowrap;
-    }
-    
-    .campo input:focus {
-      border-color: #E36920;
-      box-shadow: 0 0 5px 2px #E36920;
-    }
-
-  #btnEntrar{
-      width: 150px;
-      padding: 10px;
-      border: none;
-      border-radius: 6px;
-      font-size: 18px;
-      font-weight: bold;
-      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-      transition: background-color, font-size 0.5s ease;
-      margin-bottom: 40px;
-      background-color: #E36920;
-      color: white;
-      cursor: pointer;
-  }
-
-  #btnEntrar:hover {
-      background-color: #b65d2a; 
-      font-size: 16px;
-    }
-
-  /* Homepage */
-  .backgroundHome{
-      position: fixed;
-      height: 100%;
-      width: 100%;
-      z-index: -1;
-      overflow: hidden;
-    }
-    
-    .backgroundHome::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url('./components/homeBg.jpg');
-      background-size: cover;
-      background-position: center;
-      transform: scale(1.1);
-      z-index: -2;
-    }
-
-  .containerHome{
-      background-color: rgba(255, 255, 255, 0.8);
-      width: 95%; 
-      height: 90%;
-      border-radius: 20px;
-      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-      padding: 10px;
-
-  }
-
-  .boxContainers{
-      display: flex;
-      height: 100%;
-      width: 100%;
-  }
-
-  .containerMenu{
-    margin-right: 30px;
-    background-color: white;
-    border-radius: 20px;
-    min-height: 70%;  
-    height: auto;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);     
-
-  }
-
-  .subContainerMenu{
-    width: 100%;
+.background {
+    position: fixed;
     height: 100%;
-    box-sizing: border-box; 
-    overflow: auto;        
+    width: 100%;
+    z-index: -1;
+    overflow: hidden;
   }
-
-  #logo{
-    width: 150px;
-    display: block; 
-    margin-left: auto;
-    margin-right: auto;
+  
+  .background::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url('./components/logoBg.jpg');
+    background-size: cover;
+    background-position: center;
+    transform: scale(1.1);
+    z-index: -2;
   }
-
-  .navSections{
+  .containerLogin {
     display: flex;
-    gap: 15px;
-    padding: 20px;
-    transition: background-color 0.3s ease;
-    border-radius: 15px; 
-    white-space: nowrap; 
+    height: 90%;
+    width: 90%;
+    background-color: #EFA710;
+    border-radius: 20px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
   }
 
-  .navSections a{
-    font-size: 13px;       
-    color: #E36920;
-    text-decoration: none;
-    font-weight: 700;
+  .leftSlide {
+    position: relative;
+    width: 50%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+    clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%);
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+
   }
 
-  .navSections:hover{
-    background-color: #e3dcd897;
+  .leftSlide img {
+    display: block;  
+    max-width: 100%;  
+    height: auto;
+  }
+  .leftSlide img.logo {
+    width: 180px;   
+    margin-bottom: 30px;
+  }
+  
+  .leftSlide img.illustration {
+    width: 100%;     
+    margin: 0 auto;   
   }
 
-  #logout{
+.rightSlide {
+  width: 50%;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  margin-top: 100px;
+  flex-direction: column;
+  text-align: center;
+}
+
+.rightSlide h2{
+    color: white;
+    font-size: 40px;
+}
+
+.rightSlide h1{
+    color: white;
+    font-family: "Saira Stencil One", sans-serif;
+    text-transform: uppercase;
+    font-size: 40px;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+  }
+  
+  .campo {
+    position: relative;
+    max-width: 360px;
+    width: 100%;
+    margin: 0 auto 40px auto;
+    
+  }
+  
+  .campo input {
+    width: 100%;
+    padding: 12px 12px;
+    border: 1px solid #CCCCCC;
+    border-radius: 20px;
+    font-size: 14px;
+    box-shadow: 2px 2px 4px rgba(95, 145, 4, 0.3);
+    background: white;
+    color: #000;
+    transition: border-color 0.4s ease, box-shadow 0.4s ease;
+    outline: none;
+  }
+  
+  .campo label {
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    color: #aaa;
+    font-size: 14px;
+    pointer-events: none;
+    background-color: white;
+    padding: 0 6px;
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+  }
+  
+  .campo input:focus + label,
+  .campo input:not(:placeholder-shown) + label {
+    top: -1px;
+    left: 12px;
+    font-size: 12px;
+    font-weight: bolder;
+    color: white;
+    background-color: #E36920;
+    border-radius: 12px;
+    padding: 2px 8px;
+    width: auto;
+    max-width: 100%;
+    white-space: nowrap;
+  }
+  
+  .campo input:focus {
+    border-color: #E36920;
+    box-shadow: 0 0 5px 2px #E36920;
+  }
+
+#btnEntrar{
     width: 150px;
     padding: 10px;
     border: none;
-    border-radius: 12px;
+    border-radius: 6px;
     font-size: 18px;
     font-weight: bold;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     transition: background-color, font-size 0.5s ease;
     margin-bottom: 40px;
-    background-color: #B32800;
+    background-color: #E36920;
     color: white;
     cursor: pointer;
-    margin-top: 20px;
-    margin-bottom: 40px; 
-    margin-left: auto;   
-    margin-right: auto;  
-    display: block;     
+}
+
+#btnEntrar:hover {
+    background-color: #b65d2a; 
+    font-size: 16px;
   }
 
-  #logout:hover {
-      background-color: #771c03; 
-      font-size: 16px;
-    }
-
-  .mainContentArea {
-      flex-grow: 1; 
-      display: flex;
-      flex-direction: column;
-  }
-
-  .userContainer{
-      flex-shrink: 0;
-      background-color: white;
-      padding: 10px;
-      font-size: 13px;
-      display: flex;
-      gap: 20px;
-      border-radius: 10px; 
-      margin-left: auto;     
-      color: #E36920; 
-  }
-
-  #editProfile{
-      background-color: #EFA710;
-      border: none;
-      padding: 5px;
-      font-size: 10px;
-      border-radius: 30px;
-      font-weight: 700;
-      color: white;
-      transition: background-color 0.5s ease;
-      cursor: pointer;
-  }
-
-  #editProfile:hover {
-      background-color: #b65d2a; 
-    }
-
-  .helloUserContainer{
-      background-color: #E36920;
-      display: flex;
-      align-items: center; 
-      width: 90%;          
-      margin-top: 20px;
-      border-radius: 15px;
-      color: white;
-  }
-
-  .helloUserContainer img{
-      width: 250px;
-  }
-
-  .turmaEstudante{
-    background-color: #EFA710;
-    padding: 5px;
-    width: 130px;
-    border-radius: 10px;
-    margin-top: 15px;
-    margin-bottom: 10px;
-  }
-
-  #turma{
-    display: flex;
-    justify-content: center;
-    font-weight: 600;
-    color: white;
-  }
-
-
-  .turmaContainer p{
-    font-weight: 700;
-    color: #E36920;
-  }
-
-  .disciplinaContainer{
-    display: flex;
-    margin-top: 15px;
-  }
-
-  .disciplina{
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    gap: 5px;
-    color: #696969;
-    display: flex;
-    font-size: 13px;
-    flex-direction: column;
-    align-items: center;
-    text-decoration: none ;
-  }
-
-  #disciplina{
-    color: #B32800;
-    font-weight: bolder;
-    font-size: 18px;
-  }
-
-  .disciplina img{
-    width: 100px;
-    border-radius: 10px;
-    border: 1px solid #FD7F20;
-  }
-
-  .disciplina hr{
+/* Homepage */
+.backgroundHome{
+    position: fixed;
+    height: 100%;
     width: 100%;
-    border:1px solid #CCCCCC;
+    z-index: -1;
+    overflow: hidden;
+  }
+  
+  .backgroundHome::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url('./components/homeBg.jpg');
+    background-size: cover;
+    background-position: center;
+    transform: scale(1.1);
+    z-index: -2;
   }
 
-  .headerContent {
-    margin: 10px;
+.containerHome{
+    background-color: rgba(255, 255, 255, 0.8);
+    width: 95%; 
+    height: 90%; 
+    border-radius: 20px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+
+}
+
+.boxContainers{
     display: flex;
-    justify-content: space-between; 
-    align-items: center;          
-    margin-top: 20px;
-    gap: 5%;                    
+    height: 100%;
+    width: 100%;
+}
+
+.containerMenu{
+  margin-right: 30px;
+  background-color: white;
+  border-radius: 20px;
+  min-height: 70%;  
+  height: auto;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);     
+
+}
+
+.subContainerMenu{
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box; 
+  overflow: auto;        
+}
+
+#logo{
+  width: 150px;
+  display: block; 
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.navSections{
+  display: flex;
+  gap: 15px;
+  padding: 20px;
+  transition: background-color 0.3s ease;
+  border-radius: 15px; 
+  white-space: nowrap; 
+}
+
+.navSections a{
+  font-size: 13px;       
+  color: #E36920;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.navSections:hover{
+  background-color: #e3dcd897;
+}
+
+#logout{
+  width: 150px;
+  padding: 10px;
+  border: none;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color, font-size 0.5s ease;
+  margin-bottom: 40px;
+  background-color: #B32800;
+  color: white;
+  cursor: pointer;
+  margin-top: 20px;
+  margin-bottom: 40px; 
+  margin-left: auto;   
+  margin-right: auto;  
+  display: block;     
+}
+
+#logout:hover {
+    background-color: #771c03; 
+    font-size: 16px;
   }
 
+.mainContentArea {
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+}
 
-  .sectionNameContainer{
-    flex-grow: 1;  
+.userContainer{
+    flex-shrink: 0;
+    background-color: white;
+    padding: 10px;
+    font-size: 13px;
+    display: flex;
+    gap: 20px;
+    border-radius: 10px; 
+    margin-left: auto;     
+    color: #E36920; 
+}
+
+#editProfile{
+    background-color: #EFA710;
+    border: none;
+    padding: 5px;
+    font-size: 10px;
+    border-radius: 30px;
+    font-weight: 700;
+    color: white;
+    transition: background-color 0.5s ease;
+    cursor: pointer;
+}
+
+#editProfile:hover {
+    background-color: #b65d2a; 
+  }
+
+.helloUserContainer{
     background-color: #E36920;
     display: flex;
-    padding: 40px;
     align-items: center; 
+    width: 90%;          
     margin-top: 20px;
     border-radius: 15px;
     color: white;
-  }
+}
 
-  .userContainerSections{
-    transform: translateY(-50px); 
-  }
+.helloUserContainer img{
+    width: 250px;
+}
 
-  .userContainerSections img{
-    height: 60px;
-    width: 60px;
-  }
+.turmaEstudante{
+  background-color: #EFA710;
+  padding: 5px;
+  width: 130px;
+  border-radius: 10px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
 
-  .navBar{
-    position: relative;
-    margin-top: 20px;
-    display: flex;
-    gap: 70px;
-  }
+#turma{
+  display: flex;
+  justify-content: center;
+  font-weight: 600;
+  color: white;
+}
 
-  .navBar a{
-    text-decoration: none;
-    color: #AAAAAA;
-    font-weight: bold;
-    font-size: 18px;
-  }
 
-  .containerSection{
-    margin: 20px;
-  }
+.turmaContainer p{
+  font-weight: 700;
+  color: #E36920;
+}
 
-  .navBar .indicator{
-    position: absolute;
-    bottom: -5px;
-    height: 3px;
-    width: 0;                          
-    background-color: #EFA710;
-    border-radius: 4px;
-    transition: left .35s ease, width .35s ease;
-  }
-  .navBar a.active {
-    color: #B32800; /* cor destacada */
-  }
-  .alunosProfsContainer{
-    margin-top: 15px;
-  }
-  .aluno{
-    width: 50%;
-    display: flex;
-    background-color: white;
-    padding: 10px;
-    align-items: center;
-    gap: 15px;
-    font-weight: bold;
-    color: #696969;
-    border-radius: 50px;
-  }
+.disciplinaContainer{
+  display: flex;
+  margin-top: 15px;
+}
 
-  /* Perfil - artista  */
+.disciplina{
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  gap: 5px;
+  color: #696969;
+  display: flex;
+  font-size: 13px;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none ;
+}
+
+#disciplina{
+  color: #B32800;
+  font-weight: bolder;
+  font-size: 18px;
+}
+
+.disciplina img{
+  width: 100px;
+  border-radius: 10px;
+  border: 1px solid #FD7F20;
+}
+
+.disciplina hr{
+  width: 100%;
+  border:1px solid #CCCCCC;
+}
+
+.headerContent {
+  margin: 10px;
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;          
+  margin-top: 20px;
+  gap: 5%;                    
+}
+
+
+.sectionNameContainer{
+  flex-grow: 1;  
+  background-color: #E36920;
+  display: flex;
+  padding: 40px;
+  align-items: center; 
+  margin-top: 20px;
+  border-radius: 15px;
+  color: white;
+}
+
+.userContainerSections{
+  transform: translateY(-50px); 
+}
+
+.userContainerSections img{
+  height: 60px;
+  width: 60px;
+}
+
+.navBar{
+  position: relative;
+  margin-top: 20px;
+  display: flex;
+  gap: 70px;
+}
+
+.navBar a{
+  text-decoration: none;
+  color: #AAAAAA;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.containerSection{
+  margin: 20px;
+}
+
+.navBar .indicator{
+  position: absolute;
+  bottom: -5px;
+  height: 3px;
+  width: 0;                          
+  background-color: #EFA710;
+  border-radius: 4px;
+  transition: left .35s ease, width .35s ease;
+}
+.navBar a.active {
+  color: #B32800; /* cor destacada */
+}
+.alunosProfsContainer{
+  margin-top: 15px;
+}
+.aluno{
+  width: 50%;
+  display: flex;
+  background-color: white;
+  padding: 10px;
+  align-items: center;
+  gap: 15px;
+  font-weight: bold;
+  color: #696969;
+  border-radius: 10px;
+}
+
 #atuacaoTag {
   gap: 6px;
   flex-wrap: wrap;
@@ -476,4 +475,158 @@
 }
 .tag--2 {
   background-color: #FFB817;
+}
+
+ul{
+  list-style: none;
+}
+
+.containerMenu .navSections a.active {
+  font-weight: 900;
+  color: #E36920; 
+}
+
+#profsContainer {
+  display: none;
+}
+
+.tarefa{
+  background-color: white;
+  padding: 15px;
+  margin-top: 15px;
+  border-radius: 10px;
+  width: 60%;
+}
+
+#nomeTarefa{
+  color: #E36920;
+  font-weight: 700;
+}
+
+.prazoEntrega{
+  display: flex;
+  justify-content: right;
+  gap: 5px;
+  align-items: center;
+  color: #E36920;
+}
+
+.prazoEntrega p{
+  font-size: 12px;
+}
+
+.tarefaTitleContainer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.atrasoInfo, .concluidaInfo{
+  color: #696969;
+}
+
+/* Média */
+.mediaFinalContainer {
+  background-color: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  overflow-y: auto;
+  width: 80%;
+}
+
+.mediaTable {
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  color: #696969;
+}
+
+.mediaTable th {
+  padding: 5px;
+  font-weight: bold;
+  background-color: #FFD55A;
+  color: white;
+  border-radius: 8px;
+}
+
+.mediaTable th.disciplinaHeader {
+  background-color: #B32800;
+}
+
+.mediaTable th.finalHeader {
+  background-color: #E36920;
+}
+
+.mediaTable td {
+  padding: 10px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.disciplinaNome {
+  color: #E36920;
+  font-weight: bold;
+  text-align: left;
+}
+
+/* Calendario */
+.calendarContainer {
+  background-color: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 800px;   /* não passa disso */
+  margin: 0 auto;
+  overflow-y: auto;
+}
+
+.calendarHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+  gap: 20px;
+  color: #E36920;
+}
+
+.calendarHeader h2 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.calendarNav {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #E36920;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.calendarNav:hover {
+  color: #B32800;
+}
+
+.calendarTable {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.calendarTable th {
+  color: #B32800;
+  padding: 8px;
+  font-weight: bold;
+}
+
+.calendarTable td {
+  height: 50px;
+  padding: 5px;
+  border: 1px solid #e0e0e0;
+  vertical-align: top;
+  font-size: 13px;
+  color: #696969;
 }

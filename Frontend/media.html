@@ -44,8 +44,8 @@
                     <div class="headerContent">
                         <div class="sectionNameContainer">
                             <div>
-                                <h1>Minha turma:</h1>
-                                <p id="turma"></p>
+                                <h1>Média final:</h1>
+                                <p>Por disciplina</p>
                             </div>
                         </div>
                         <div class="userContainer userContainerSections">
@@ -58,34 +58,36 @@
                         </div>
                     </div>
                     <div class="containerSection">
-                        <div class="navBar" data-scope="perfil">
-                            <a href="#alunos" data-tab="alunos" class="active">Alunos</a>
-                            <a href="#professores" data-tab="professores">Professores</a>
-                            <span class="indicator"></span> 
-                        </div> 
-                        <div class="alunosProfsContainer" id="alunosContainer">
-                            <ul id="listaAlunos">
-                                <li class="aluno professor">
-                                    <img src="./icons/person-circle (1).svg" alt="">
-                                    <p>Nome de Usuário</p>  
-                                </li>                                
-                            </ul>
-
+                        <div class="mediaFinalContainer">
+                            <table class="mediaTable">
+                                <thead>
+                                    <tr>
+                                        <th class="disciplinaHeader">Disciplina</th>
+                                        <th>1 trimestre</th>
+                                        <th>2 trimestre</th>
+                                        <th>3 trimestre</th>
+                                        <th class="finalHeader">Final</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="disciplinaNome">História</td>
+                                        <td>10</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="disciplinaNome">Geografia</td>
+                                        <td>10</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
-                        <div class="alunosProfsContainer" id="profsContainer">
-                            <ul id="listaProfs">
-                                <li class="aluno professor">
-                                    <img src="./icons/person-circle (1).svg" alt="">
-                                    <p>Nome de Professor</p>  
-                                    <span id="atuacaoTag">
-                                        <span class="tag tag--1"></span>
-                                        <span class="tag tag--2" hidden></span>
-                                    </span>
-                                </li>                                
-                            </ul>
-
-                        </div>     
-                    </div>
+                </div>  
                 </div>
             </div>
     </main>

@@ -18,7 +18,7 @@
                     <img src="./icons/estilume logo.png" alt="" id="logo">
                     <div class="navSections">
                             <img src="./icons/house-door-fill.svg" alt="">
-                            <a href="./index.html" >Página inicial</a>                        
+                            <a href="./index.html">Página inicial</a>                        
                     </div>
                         <div class="navSections">
                                 <img src="./icons/person-workspace.svg" alt="">
@@ -41,38 +41,48 @@
                 </div>
                 
                 <div class="mainContentArea">
-                    <div class="userContainer">
-                        <img src="./icons/person-circle (1).svg" alt="foto de perfil" id="perfil">
-                        <div>
-                            <p id="email">oioi</p>
-                            <p id="tipoPerfil">oioi</p>
-                            <button type="button" id="editProfile">Editar foto de perfil</button>
+                    <div class="headerContent">
+                        <div class="sectionNameContainer">
+                            <div>
+                                <h1>Histórico de presença:</h1>
+                            </div>
+                        </div>
+                        <div class="userContainer userContainerSections">
+                            <img src="./icons/person-circle (1).svg" alt="foto de perfil" id="perfil">
+                            <div>
+                                <p id="email">oioi</p>
+                                <p id="tipoPerfil">oioi</p>
+                                <button type="button" id="editProfile">Editar foto de perfil</button>
+                            </div>
                         </div>
                     </div>
-                    <div class="helloUserContainer">
-                        <img src="./components/homeIlustration.png" alt="">
-                        <div>
-                            <h1></h1>
-                            <p>Pronto para começar o dia?</p>
+                    <div class="containerSection">
+                        <div class="calendarContainer">
+                            <div class="calendarHeader">
+                                <button class="calendarNav" id="prevMonth">&#8592;</button>
+                                <h2 id="monthYear"></h2>
+                                <button class="calendarNav" id="nextMonth">&#8594;</button>
+                            </div>
+                            <table class="calendarTable">
+                                <thead>
+                                    <tr>
+                                        <th>Seg</th>
+                                        <th>Ter</th>
+                                        <th>Qua</th>
+                                        <th>Qui</th>
+                                        <th>Sex</th>
+                                        <th>Sab</th>
+                                        <th>Dom</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="calendarBody"></tbody>
+                            </table>
                         </div>
-                    </div>
-                    <div class="turmaContainer">
-                        <div class="turmaEstudante">
-                            <p id="turma">Turma:</p> 
-                        </div>
-                        <p>Disciplinas:</p>
-                        <div class="disciplinaContainer">
-                            <a href="" class="disciplina">
-                                <img src="./components/logoBg.jpg" alt="">
-                                <p id="disciplina">História</p>
-                                <hr>
-                                <p>Ver notas</p>                                    
-                            </a>
-                        </div>
-                    </div>
+                    </div>  
                 </div>
-        </div>
+            </div>
     </main>
 </body>
 <script src="./script.js"></script>
+<script src="./calendario.js"></script>
 </html>
