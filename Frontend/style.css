@@ -339,7 +339,7 @@ body {
 
 #turma{
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   font-weight: 600;
   color: white;
 }
@@ -400,10 +400,22 @@ body {
   background-color: #E36920;
   display: flex;
   padding: 40px;
+  gap: 15px;
   align-items: center; 
   margin-top: 20px;
   border-radius: 15px;
   color: white;
+}
+
+.sectionNameContainer div{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* garante alinhamento à esquerda */
+  
+}
+
+.sectionNameContainer img {
+  filter: brightness(0) invert(1); /* deixa branco */
 }
 
 .userContainerSections{
@@ -433,6 +445,10 @@ body {
   margin: 20px;
 }
 
+.containerSection h3{
+  margin-top: 15px;
+  color: #B32800;
+}
 .navBar .indicator{
   position: absolute;
   bottom: -5px;
@@ -808,9 +824,12 @@ body {
 .alunoChamada {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   background: #fff;
   padding: 10px;
+  width: 60%;
+  gap: 5px;
+  color: #626262;
+  font-weight: bold;
   border-radius: 8px;
   margin-bottom: 10px;
 }
@@ -819,11 +838,11 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
-  flex: 1;
 }
 
 .alunoChamada .faltas {
   margin: 0 10px;
+  margin-left: auto;
   color: #a00;
   font-weight: bold;
 }
@@ -834,3 +853,52 @@ body {
   padding: 5px 10px;
   background: #ddd;
 }
+.checkPresenca {
+  appearance: none;
+  width: 20px;   
+  height: 20px;
+  border: 1px solid #E36920; 
+  border-radius: 50%;   
+  cursor: pointer;
+  outline: none;
+  background-color: #fff;
+  transition: 0.2s;
+}
+
+.checkPresenca:checked {
+  background-color: #4caf50; 
+}
+
+#acoesChamada{
+  display: flex;
+  gap: 15px;
+}
+
+.btnTerminarCancelar{
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border: none;
+  cursor: pointer;
+  border-radius: 15px;
+  color: white;
+  font-weight: bold;
+}
+
+#btnTerminar{
+  background-color: #EFA710;
+}
+
+#btnCancelar{
+  background-color: #ACACAC;
+}
+
+.devolvidos .nota{
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  width: 30%;
+  margin: 0 auto;
+}
+

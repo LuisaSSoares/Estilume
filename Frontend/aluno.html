@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bellota+Text:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Julius+Sans+One&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Saira+Stencil+One&family=Yeseva+One&display=swap" rel="stylesheet">
+    <title>Estilume</title>
+</head>
+<body>
+    <div class="backgroundHome"></div>
+    <main class="containerHome">
+        <div class="boxContainers">
+            <div class="containerMenu">
+                <div class="subContainerMenu">
+                    <img src="./icons/estilume logo.png" alt="" id="logo">
+                    <div class="navSections">
+                            <img src="./icons/house-door-fill.svg" alt="">
+                            <a href="./index.html">Página inicial</a>                        
+                    </div>
+                        <div class="navSections">
+                                <img src="./icons/calendar-week.svg" alt="">
+                                <a href="./tarefas.html">Tarefas</a>
+                        </div>
+
+                        <div class="navSections" data-role="historico">
+                                <img src="./icons/briefcase.svg" alt="">
+                                <a href="./historico.html">Histórico de presença</a>
+                        </div>
+                        <button type="submit" id="logout">Sair da conta</button> 
+                    </div>   
+                </div>
+                
+                <div class="mainContentArea">
+                    <div class="headerContent">
+                        <div class="sectionNameContainer">
+                            <img src="./icons/person-circle (1).svg" alt="">
+                            <div>
+                                <h1>Nome do aluno</h1>
+                                <p id="turma"></p>
+                            </div>
+                        </div>
+                        <div class="userContainer userContainerSections">
+                            <img src="./icons/person-circle (1).svg" alt="foto de perfil" id="perfil">
+                            <div>
+                                <p id="email">oioi</p>
+                                <p id="tipoPerfil">oioi</p>
+                                <button type="button" id="editProfile">Editar foto de perfil</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="containerSection">
+                        <div class="navBar" data-scope="perfil">
+                            <a href="#1tri" data-tab="1tri" class="active">1 trimestre</a>
+                            <a href="#2tri" data-tab="2tri">2 trimestre</a>
+                            <a href="#3tri" data-tab="3tri">3 trimestre</a>
+                            <span class="indicator"></span> 
+                        </div> 
+                        <h3>Tarefas devolvidas:</h3>
+                          <!-- Container de tarefas do 1º trimestre -->
+                            <div class="tarefasContainer devolvidos" id="1triContainer">
+                                <ul>
+                                    <li class="tarefa">
+                                        <div class="tarefaInfo">
+                                            <p id="nomeTarefa">Nome da tarefa</p>
+                                            <span class="tag">Matemática</span>
+                                        </div>
+                                        <div class="statusEntrega">
+                                            <p>Entregue</p>
+                                            <div class="nota">
+                                                <img src="./icons/pencil-square.svg" alt="">
+                                                <p><b>Nota:</b> 10</p>
+                                            </div>
+                                        </div>                                     
+                                    </li>
+                                </ul>
+                            </div>
+                    </div>
+                </div>
+            </div>
+    </main>
+</body>
+<script src="./script.js"></script>
+</html>
