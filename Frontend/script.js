@@ -1,25 +1,55 @@
-// document.addEventListener('DOMContentLoaded', function() {
-//     const userType = localStorage.getItem('userType');
-//     const messageElement = document.getElementById('user-type-message');
+document.addEventListener('DOMContentLoaded', () => {
+  // Recupera o objeto user do localStorage
+  const usuario = JSON.parse(localStorage.getItem('usuario'));
 
-//     if (userType) {
-//         let displayMessage = '';
+  if (!usuario) return; // se não existir, não faz nada
 
-//         // 2. Definir a mensagem com base no tipo de usuário
-//         if (userType.toLowerCase() === 'estudante') {
-//             displayMessage = `Você é um usuário do tipo: ESTUDANTE`;
-//         } else if (userType.toLowerCase() === 'professor') {
-//             displayMessage = `Você é um usuário do tipo: PROFESSOR`;
-//         } else if (userType.toLowerCase() === 'admin') {
-//             displayMessage = `Você é um usuário do tipo: ADMINISTRADOR`;
-//         } else {
-//             displayMessage = `Tipo de usuário não reconhecido: ${userType}`;
-//         }
-        
-//         // 3. Exibir a mensagem na tela
-//         messageElement.textContent = displayMessage;
-//     }
-// });
+  // Exibe no header
+  document.getElementById("email").textContent = usuario.email || "sem email";
+  document.getElementById("tipoPerfil").innerHTML = `Perfil de: <strong>${usuario.tipo || "sem tipo"}</strong>`;
+
+    // Exibe o nome no h1
+    const helloUser = document.querySelector(".helloUserContainer h1");
+    if (helloUser) {
+      helloUser.textContent = `Olá, ${usuario.nome || "Usuário"}`;
+    }
+
+  // Decide layout
+  if (usuario.tipo === "professor") {
+    configurarLayoutProfessor();
+    document.getElementById("subtituloDisciplina").textContent = "Minhas turmas:";
+    document.querySelector(".containerNotas").style.display = "none"; 
+    document.querySelector(".containerTurma").style.display = "block"; 
+  }
+});
+document.querySelectorAll(".btnVer").forEach(botao => {
+  botao.addEventListener("click", () => {
+    localStorage.setItem("mostrarTurma", "prof");
+    window.location.href = './turma.html'
+  })
+})
+
+document.addEventListener("DOMContentLoaded", () => {
+  const mostrar = localStorage.getItem("mostrarTurma");
+  if (mostrar === "prof") {
+    document.querySelector(".listaAlunosProfsContainer").style.display = "none"; 
+    document.querySelector(".containerProf").style.display = "block"; 
+  }
+});
+
+function configurarLayoutProfessor() {
+  // Esconde menus extras
+  document.querySelectorAll(".containerMenu .navSections a").forEach(a => {
+    if (!["./index.html", "./tarefas.html"].includes(a.getAttribute("href"))) {
+      a.parentElement.style.display = "none";
+    }
+  });
+
+  // Troca "Ver notas" → "Ver turmas"
+  document.querySelectorAll(".disciplinaContainer a p:last-child")
+    .forEach(p => p.textContent = "Ver turmas");
+}
+
 
 document.addEventListener("DOMContentLoaded", () => {
   let currentPath = window.location.pathname.split("/").pop(); 
@@ -126,3 +156,10 @@ if (navTarefas) {
   const activeLinkTarefas = navTarefas.querySelector('a.active');
   if (activeLinkTarefas) setActiveTarefas(activeLinkTarefas.dataset.tab);
 }
+
+document.querySelectorAll(".tarefa").forEach(item => {
+  item.addEventListener("click", () => {
+    const tarefaId = item.dataset.id; 
+    window.location.href = `exibicaoTarefa.html?id=${tarefaId}`;
+  });
+});

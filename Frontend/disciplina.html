@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Bellota+Text:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Julius+Sans+One&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Saira+Stencil+One&family=Yeseva+One&display=swap" rel="stylesheet">
     <title>Estilume</title>
 </head>
-<body>
+<body class="disciplinaPage"   >
     <div class="backgroundHome"></div>
     <main class="containerHome">
         <div class="boxContainers">
@@ -44,8 +44,8 @@
                     <div class="headerContent">
                         <div class="sectionNameContainer">
                             <div>
-                                <h1 id="tarefa">Nome da tarefa:</h1>
-                                <p id="disciplina"></p>
+                                <h1 id="disciplinaTitulo">História</h1>
+                                <p id="subtituloDisciplina">Notas:</p>
                             </div>
                         </div>
                         <div class="userContainer userContainerSections">
@@ -57,36 +57,39 @@
                             </div>
                         </div>
                     </div>
-                    <div class="containerSection">
-                        <div class="exibicaoContainer">
-                            <div class="explicacaoTarefaContainer">
-                                <h3>Descrição:</h3>
-                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatum temporibus veniam optio, mollitia iusto dignissimos quae harum! Vitae, eaque dicta deleniti ab, fugit vel repudiandae minima consequatur consectetur aliquid omnis.</p>
-                            </div>
-                            <div class="buttonsContainer">
-                                <button id="entregaTarefa" type="submit">
-                                    <img src="./icons/check-lg.svg" alt="">
-                                    <p>Entregar tarefa</p>
-                                </button>
-                                <button id="addArquivo" type="button">
-                                    <img src="./icons/plus-circle-fill (1).svg" alt="">
-                                    <p>Adicionar arquivo</p>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="explicacaoTarefaContainer">
-                            <h3>Critérios de avaliação:</h3>
-                            <ul>
-                                <li>Critério 1</li>
-                                <li>Critério 2</li>
-                                <li>Critério 3</li>
+                    <!-- Container dos alunos -->
+                    <div class="containerSection containerNotas">
+                        <div class="tarefasContainer" id="pendentesContainer">
+                            <ul id="listaPendentes">
+                                <li class="tarefa">
+                                    <div class="tarefaInfo">
+                                        <p id="nomeTarefa">Nome da tarefa</p>
+                                        <span class="tag">aaaa</span>
+                                      </div>
+                                    <div class="statusEntrega">
+                                        <p>Entregue</p>
+                                        <div class="nota">
+                                            <p><b>Nota:</b> 10</p>
+                                        </div>
+                                    </div>                                     
+                                </li>
                             </ul>
                         </div>
-                        <div class="explicacaoTarefaContainer">
-                            <h3>Meu Feedback:</h3>
-                            <p>Ainda não há feedback</p>
+                    </div>
+                    <!-- Container dos profesores -->
+                    <div class="containerSection containerTurma" style="display: none;">
+                        <div class="turmaCard">
+                                <p id="turmaDisciplina"><b>Turma 1A-M</b></p>
+                                <hr>
+                                <div>
+                                    <img src="./icons/people-fill.svg" alt="">
+                                    <p>30 alunos</p>
+                                </div>
+                                <button class="btnVer">Ver turma</button>
+                                <button class="btnEditar">Editar turma</button>
                         </div>
-                   </div>
+                    </div>
+                </div>
                 </div>
             </div>
     </main>
