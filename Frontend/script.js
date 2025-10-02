@@ -14,28 +14,36 @@ document.addEventListener('DOMContentLoaded', () => {
       helloUser.textContent = `Olá, ${usuario.nome || "Usuário"}`;
     }
 
+    const containerProf = document.querySelector(".containerProf");
+    const listaAlunosProfs = document.querySelector(".listaAlunosProfsContainer");
+
   // Decide layout
   if (usuario.tipo === "professor") {
+    if (containerProf) containerProf.style.display = "block";
+    if (listaAlunosProfs) listaAlunosProfs.style.display = "none";
     configurarLayoutProfessor();
-    document.getElementById("subtituloDisciplina").textContent = "Minhas turmas:";
-    document.querySelector(".containerNotas").style.display = "none"; 
-    document.querySelector(".containerTurma").style.display = "block"; 
+
+    const subtitulo = document.getElementById("subtituloDisciplina");
+    if (subtitulo) subtitulo.textContent = "Minhas turmas:";
+
+    const containerNotas = document.querySelector(".containerNotas");
+    if (containerNotas) containerNotas.style.display = "none";
+    const containerTurma = document.querySelector(".containerTurma");
+    if (containerTurma) containerTurma.style.display = "block";
+
+  } else {
+    // Mostra somente o layout de aluno
+    if (containerProf) containerProf.style.display = "none";
+    if (listaAlunosProfs) listaAlunosProfs.style.display = "block";
   }
+
 });
 document.querySelectorAll(".btnVer").forEach(botao => {
   botao.addEventListener("click", () => {
-    localStorage.setItem("mostrarTurma", "prof");
     window.location.href = './turma.html'
   })
 })
 
-document.addEventListener("DOMContentLoaded", () => {
-  const mostrar = localStorage.getItem("mostrarTurma");
-  if (mostrar === "prof") {
-    document.querySelector(".listaAlunosProfsContainer").style.display = "none"; 
-    document.querySelector(".containerProf").style.display = "block"; 
-  }
-});
 
 function configurarLayoutProfessor() {
   // Esconde menus extras
@@ -49,6 +57,31 @@ function configurarLayoutProfessor() {
   document.querySelectorAll(".disciplinaContainer a p:last-child")
     .forEach(p => p.textContent = "Ver turmas");
 }
+
+
+document.getElementById("btnChamada").addEventListener("click", () => {
+  const listaAlunos = document.getElementById("listaAlunosProf"); // agora usa a certa
+  const alunos = Array.from(listaAlunos.querySelectorAll("li p")); 
+
+  listaAlunos.innerHTML = ""; // limpa lista atual
+
+  alunos.forEach((aluno, index) => {
+    const li = document.createElement("li");
+    li.classList.add("alunoChamada");
+
+    li.innerHTML = `
+      <label>
+        <input type="checkbox" class="checkPresenca" data-index="${index}">
+        <img src="./icons/person-circle (1).svg" alt="">
+        <span class="nomeAluno">${aluno.textContent.trim()}</span>
+      </label>
+      <span class="faltas">Faltas: 0</span>
+      <input type="text" class="justificativa" placeholder="Justificativa">
+    `;
+
+    listaAlunos.appendChild(li);
+  });
+});
 
 
 document.addEventListener("DOMContentLoaded", () => {
