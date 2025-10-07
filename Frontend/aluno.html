@@ -59,13 +59,13 @@
                             <span class="indicator"></span> 
                         </div> 
                         <h3>Tarefas devolvidas:</h3>
-                          <!-- Container de tarefas do 1º trimestre -->
+                        <div class="trimestreContent">
                             <div class="tarefasContainer devolvidos" id="1triContainer">
                                 <ul>
                                     <li class="tarefa">
                                         <div class="tarefaInfo">
-                                            <p id="nomeTarefa">Nome da tarefa</p>
-                                            <span class="tag">Matemática</span>
+                                            <p class="nomeTarefa">Nome da tarefa</p>
+                                            <span class="tag"></span>
                                         </div>
                                         <div class="statusEntrega">
                                             <p>Entregue</p>
@@ -77,6 +77,18 @@
                                     </li>
                                 </ul>
                             </div>
+
+                            <div id="2triContainer" class="tarefasContainer"></div>
+                            <div id="3triContainer" class="tarefasContainer"></div>
+
+                            <div class="mediaFinalArea">
+                                <button id="btnMediaFinal">
+                                    <img src="./icons/calculator-fill.svg" alt="calculadora">
+                                    Calcular média final
+                                </button>
+                                <p class="mediaFinalTexto"><b>Média final:</b> <span id="mediaFinalValor">--</span></p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

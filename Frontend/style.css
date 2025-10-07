@@ -207,7 +207,7 @@ body {
 }
 
 .containerMenu{
-  width: 200px; 
+  width: 230px; 
   margin-right: 30px;
   background-color: white;
   border-radius: 20px;
@@ -513,16 +513,18 @@ body {
 }
 
 .tarefa{
+  display: flex;
+  justify-content: space-between;
   background-color: white;
-  padding: 15px;
+  padding: 25px;
   margin-top: 15px;
   border-radius: 10px;
-  width: 60%;
+  gap: 250px;
   cursor: pointer;
   
 }
 
-#nomeTarefa{
+.nomeTarefa{
   color: #E36920;
   font-weight: 700;
 }
@@ -898,7 +900,187 @@ body {
   display: flex;
   justify-content: center;
   gap: 15px;
-  width: 30%;
   margin: 0 auto;
 }
+.trimestreContent {
+  display: flex;
+  justify-content: space-between; 
+}
+.mediaFinalArea {
+  margin-right: 150px;
+  display: flex;
+  flex-direction: column;
+}
 
+#btnMediaFinal {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #B32800;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#btnMediaFinal:hover {
+  background-color: #771c03;
+}
+
+.mediaFinalTexto {
+  font-size: 18px;
+  color: #B32800;
+}
+
+#mediaFinalValor {
+  color: #E9A200;
+  font-size: 22px;
+  margin-left: 5px;
+}
+
+.containerCriacaoTarefa {
+  display: none;
+}
+
+.listaTarefasProfessor {
+  display: block; 
+  margin-top: 20px; 
+}
+
+.listaTarefasProfessor ul {
+  list-style: none;
+  padding: 0;
+}
+
+.criacaoTarefaHeader{
+  display: flex;
+  gap: 20px;
+}
+
+.criacaoTarefaHeader h2{
+  color: #E36920;
+}
+
+#addtarefa{
+  display: flex;
+  padding: 10px;
+  gap: 5px;
+  border-radius: 15px;
+  border: none;
+  color: white;
+  background-color: #E9A200;
+  font-weight: bold;
+}
+
+.tarefaDisplay{
+  display: flex;
+  justify-content: space-between;
+}
+
+.btnTarefas button{
+  background: none;  
+  border: none;  
+  padding: 0;      
+  outline: none;      
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.btnTarefas img{
+  height: 22px;
+  filter: grayscale(100%) brightness(70%); 
+}
+
+/* Modal */
+.modal {
+  padding: 40px;
+  position: fixed;
+  display: none; 
+  z-index: 1000;
+  inset: 0;
+  background-color: rgba(0,0,0,0.6);
+  backdrop-filter: blur(2px);
+}
+
+.modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  width: 600px;
+  max-width: 90%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.modal-content h2 {
+  font-size: 26px;
+  color: #8b0000;
+  margin-bottom: 20px;
+}
+
+.listaEntregas {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 25px 0;
+}
+
+.itemEntrega {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.userInfo img {
+  width: 40px;
+  height: 40px;
+}
+
+.status {
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-size: 14px;
+  color: #fff;
+}
+
+.status.entregue {
+  background-color: #b52b00;
+}
+
+.status.nao-entregue {
+  background-color: #777;
+}
+
+.verEntregaBtn {
+  background: none;
+  border: none;
+  color: #b52b00;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.verEntregaBtn:hover {
+  color: #ff4400;
+}
+
+#fecharModal {
+  margin-top: 10px;
+  background-color: #b52b00;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  width: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+}

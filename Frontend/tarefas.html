@@ -58,59 +58,97 @@
                         </div>
                     </div>
                     <div class="containerSection">
-                        <div class="navBar" data-scope="perfil">
-                            <a href="#pendentes" data-tab="pendentes" class="active">Pendente</a>
-                            <a href="#atraso" data-tab="atraso">Em atraso</a>
-                            <a href="#concluidas" data-tab="concluidas">Concluidas</a>
-                            <span class="indicator"></span> 
-                        </div> 
-                        <div class="tarefasContainer" id="pendentesContainer">
-                            <ul id="listaPendentes">
-                                <li class="tarefa">
-                                    <p id="nomeTarefa">Nome da tarefa</p>
-                                    <span class="tag">aaa</span>
+                        <div class="tarefaTelaAluno">
+                            <div class="navBar" data-scope="perfil">
+                                <a href="#pendentes" data-tab="pendentes" class="active">Pendente</a>
+                                <a href="#atraso" data-tab="atraso">Em atraso</a>
+                                <a href="#concluidas" data-tab="concluidas">Concluidas</a>
+                                <span class="indicator"></span> 
+                            </div> 
+                            <div class="tarefasContainer" id="pendentesContainer">
+                                <ul id="listaPendentes">
+                                    <li class="tarefa">
+                                        <p class="nomeTarefa">Nome da tarefa</p>
+                                        <span class="tag"></span>
+                                        <div class="prazoEntrega">
+                                            <img src="./icons/clock.svg" alt="">
+                                            <p><b>Prazo de entrega:</b> 12 de set - 23h99</p>                                        
+                                        </div>                                        
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="tarefasContainer" id="atrasoContainer">
+                                <ul id="listaAtraso">
+                                <li class="tarefa atraso">
+                                    <div class="tarefaTitleContainer">
+                                        <p class="nomeTarefa">Nome da tarefa</p>
+                                        <span class="tag"></span>
+                                        <div class="prazoEntrega atrasoInfo">
+                                            <img src="./icons/exclamation-circle-fill.svg" alt="">
+                                            <p><b>Atrasado há:</b> 2 dias</p>                                        
+                                        </div>                                    
+                                    </div>
+
                                     <div class="prazoEntrega">
-                                        <img src="./icons/clock.svg" alt="">
-                                        <p><b>Prazo de entrega:</b> 12 de set - 23h99</p>                                        
-                                    </div>                                        
+                                    <img src="./icons/clock.svg" alt="">
+                                    <p><b>Prazo de entrega:</b> 12 de set - 23h59</p>
+                                    </div>
                                 </li>
-                            </ul>
+                                </ul>
+                            </div>
+
+                            <div class="tarefasContainer" id="concluidasContainer">
+                                <ul id="listaConcluidas">
+                                <li class="tarefa concluida">
+                                    <div class="tarefaTitleContainer">
+                                        <p class="nomeTarefa">Nome da tarefa</p>
+                                        <span class="tag"></span>
+                                        <div class="prazoEntrega concluidaInfo">
+                                        <img src="./icons/check-circle-fill.svg" alt="">
+                                        <p><b>Entregue em:</b> 12 de set - 09h30</p>
+                                        </div>                                    
+                                    </div>
+                                </li>
+                                </ul>
+                            </div>                            
                         </div>
-                        <div class="tarefasContainer" id="atrasoContainer">
-                            <ul id="listaAtraso">
-                              <li class="tarefa atraso">
-                                <div class="tarefaTitleContainer">
-                                    <p id="nomeTarefa">Nome da tarefa</p>
-                                    <span class="tag"></span>
-                                    <div class="prazoEntrega atrasoInfo">
-                                        <img src="./icons/exclamation-circle-fill.svg" alt="">
-                                        <p><b>Atrasado há:</b> 2 dias</p>                                        
-                                    </div>                                    
-                                </div>
 
-                                <div class="prazoEntrega">
-                                  <img src="./icons/clock.svg" alt="">
-                                  <p><b>Prazo de entrega:</b> 12 de set - 23h59</p>
-                                </div>
-                              </li>
-                            </ul>
-                          </div>
+                          <div class="containerCriacaoTarefa">
+                            <div class="criacaoTarefaHeader">
+                                <h2>Tarefas enviadas:</h2>
+                                <button id="addtarefa">
+                                    <img src="./icons/plus-lg.svg" alt="">
+                                    <p>Adicionar Tarefa</p>
+                                </button>
+                            </div>
+                                <div class="listaTarefasProfessor">
+                                    <ul id="listaTarefas">
+                                        <li class="tarefa" style="display:block;">
+                                            <div class="tarefaDisplay">
+                                                <div>
+                                                    <p class="nomeTarefa">Nome da tarefa</p>
+                                                    <span class="tag"></span>                                                    
+                                                </div>
 
-                          <div class="tarefasContainer" id="concluidasContainer">
-                            <ul id="listaConcluidas">
-                              <li class="tarefa concluida">
-                                <div class="tarefaTitleContainer">
-                                    <p id="nomeTarefa">Nome da tarefa</p>
-                                    <span class="tag"></span>
-                                    <div class="prazoEntrega concluidaInfo">
-                                    <img src="./icons/check-circle-fill.svg" alt="">
-                                    <p><b>Entregue em:</b> 12 de set - 09h30</p>
-                                    </div>                                    
+                                                <div class="btnTarefas">
+                                                    <button id="editTarefa">
+                                                        <img src="./icons/pencil-square.svg" alt="">
+                                                    </button>                                                
+                                                    <button id="deleteTarefa">
+                                                        <img src="./icons/trash (1).svg" alt="">
+                                                    </button>                                                         
+                                                </div>
+                                           
+                                            </div>
+                                                <div class="prazoEntrega">
+                                                    <img src="./icons/clock.svg" alt="">
+                                                    <p><b>Prazo de entrega:</b> 12 de set - 23h99</p>                                        
+                                                </div>  
+                                        </li>
+                                    </ul>
                                 </div>
-                              </li>
-                            </ul>
                           </div>
-                </div>
+                    </div>
                 </div>
             </div>
     </main>

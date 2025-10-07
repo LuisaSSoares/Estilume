@@ -6,6 +6,34 @@ document.addEventListener("DOMContentLoaded", () => {
     const helloUser = document.querySelector(".helloUserContainer h1");
     if (helloUser) helloUser.textContent = `Olá, ${usuario.nome || "Usuário"}`;
   }
+  const btnLogout = document.getElementById("logout");
+  if (btnLogout) {
+    btnLogout.addEventListener("click", () => {
+      localStorage.removeItem("usuario"); // limpa apenas o usuário
+      window.location.href = "./login.html"; // redireciona para login
+    });
+  }
+
+  function verificarTrimestreVazio(tabName) {
+    const container = document.getElementById(tabName + "Container");
+    const mediaArea = document.querySelector(".mediaFinalArea");
+  
+    if (!mediaArea) return;
+  
+    // Se o trimestre não existir, some com a média final
+    if (!container) {
+      mediaArea.style.display = "none";
+      return;
+    }
+  
+    const tarefas = container.querySelectorAll(".tarefa");
+    if (tarefas.length === 0) {
+      mediaArea.style.display = "none";
+      container.innerHTML = "<p style='color:#777; text-align:center; margin-top:20px;'>Nenhuma tarefa cadastrada neste trimestre.</p>";
+    } else {
+      mediaArea.style.display = "flex";
+    }
+  }
 
   const btnAluno = document.getElementById("btnAluno");
   if (btnAluno) {
@@ -13,7 +41,6 @@ document.addEventListener("DOMContentLoaded", () => {
       window.location.href = "./aluno.html";
     });
   }
-
   // Detecta a página atual
   const currentPage = window.location.pathname.split("/").pop();
 
@@ -30,21 +57,53 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const containerProf = document.querySelector(".containerProf");
   const listaAlunosProfs = document.querySelector(".listaAlunosProfsContainer");
+  const containerCriacaoTarefa = document.querySelector(".containerCriacaoTarefa");
+  const tarefaTelaAluno = document.querySelector(".tarefaTelaAluno"); 
+  const containerTurma = document.querySelector(".containerTurma");
+  const subtitulo = document.getElementById("subtituloDisciplina");
+  const containerNotas = document.querySelector(".containerNotas");
+  const entregaTarefaBtn = document.getElementById("entregaTarefa");
+  const addArquivoBtn = document.getElementById("addArquivo");
+  const feedbackContainer = document.querySelector(".feedback"); 
+
+
 
   if (usuario?.tipo === "professor") {
     if (containerProf) containerProf.style.display = "block";
     if (listaAlunosProfs) listaAlunosProfs.style.display = "none";
     configurarLayoutProfessor();
-    const subtitulo = document.getElementById("subtituloDisciplina");
     if (subtitulo) subtitulo.textContent = "Minhas turmas:";
-    const containerNotas = document.querySelector(".containerNotas");
     if (containerNotas) containerNotas.style.display = "none";
-    const containerTurma = document.querySelector(".containerTurma");
     if (containerTurma) containerTurma.style.display = "block";
+    if (containerCriacaoTarefa) containerCriacaoTarefa.style.display = "block"; 
+    if (tarefaTelaAluno) tarefaTelaAluno.style.display = "none"; 
   } else {
     if (containerProf) containerProf.style.display = "none";
     if (listaAlunosProfs) listaAlunosProfs.style.display = "block";
+    if (containerCriacaoTarefa) containerCriacaoTarefa.style.display = "none"; 
+    if (tarefaTelaAluno) tarefaTelaAluno.style.display = "block"; 
   }
+  
+  if (usuario?.tipo === "professor") {
+    // Alterar botão "Entregar tarefa" para "Ver entregas"
+    if (entregaTarefaBtn) {
+        entregaTarefaBtn.innerHTML = `
+            <img src="./icons/eye-fill.svg" alt="">
+            <p>Ver entregas</p>
+        `;
+    }
+
+    // Remover botão "Adicionar arquivo"
+    if (addArquivoBtn) {
+        addArquivoBtn.style.display = "none";
+    }
+
+    // Remover feedback
+    if (feedbackContainer) {
+        feedbackContainer.style.display = "none";
+    }
+}
+
 
   document.querySelectorAll(".btnVer").forEach(botao => {
     botao.addEventListener("click", () => {
@@ -146,6 +205,7 @@ document.addEventListener("DOMContentLoaded", () => {
       document.querySelectorAll('.tarefasContainer').forEach(c => c.style.display = 'none');
       const container = document.getElementById(tabName + "Container");
       if (container) container.style.display = "block";
+      verificarTrimestreVazio(tabName);
     }
     linksTarefas.forEach(a => a.addEventListener("click", e => {
       e.preventDefault();
@@ -166,15 +226,48 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 function configurarLayoutProfessor() {
+  const currentPage = window.location.pathname.split("/").pop();
+  
   document.querySelectorAll(".containerMenu .navSections a").forEach(a => {
     const href = a.getAttribute("href");
-    // Deixa index e tarefas sempre visíveis
-    if (!["./index.html", "./tarefas.html"].includes(href)) {
-      if (href === "./historico.html" && window.location.pathname.split("/").pop() === "aluno.html") {
-        a.parentElement.style.display = "flex"; // Professor em aluno.html vê histórico
-      } else {
-        a.parentElement.style.display = "none"; // Em qualquer outra página, esconde
-      }
+
+    // Index e tarefas sempre visíveis
+    if (["./index.html", "./tarefas.html"].includes(href)) {
+      a.parentElement.style.display = "flex";
+    } 
+    // Histórico visível em aluno.html e historico.html
+    else if (href === "./historico.html" && (currentPage === "aluno.html" || currentPage === "historico.html")) {
+      a.parentElement.style.display = "flex";
+    } 
+    // Qualquer outro link fica oculto
+    else {
+      a.parentElement.style.display = "none";
     }
   });
 }
+  const modal = document.getElementById("modalEntregas");
+  const btnAbrir = document.getElementById("entregaTarefa");
+  const btnFechar = document.getElementById("fecharModal");
+
+  // Função para abrir o modal
+  function abrirModal() {
+    if(modal) modal.style.display = "block";
+  }
+
+  // Função para fechar o modal
+  function fecharModal() {
+    if(modal) modal.style.display = "none";
+  }
+
+  // Abrir ao clicar no botão "Entregar tarefa"
+  if(btnAbrir) btnAbrir.addEventListener("click", abrirModal);
+
+  // Fechar ao clicar no botão de fechar
+  if(btnFechar) btnFechar.addEventListener("click", fecharModal);
+
+  // Fechar ao clicar fora da modal-content
+  if(modal) {
+    modal.addEventListener("click", (e) => {
+      if(e.target === modal) fecharModal();
+    });
+  }

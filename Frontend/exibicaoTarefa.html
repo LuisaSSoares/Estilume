@@ -58,38 +58,58 @@
                         </div>
                     </div>
                     <div class="containerSection">
-                        <div class="exibicaoContainer">
+                        <div class="tarefaContent">
+                            <div class="exibicaoContainer">
+                                <div class="explicacaoTarefaContainer">
+                                    <h3>Descrição:</h3>
+                                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatum temporibus veniam optio, mollitia iusto dignissimos quae harum! Vitae, eaque dicta deleniti ab, fugit vel repudiandae minima consequatur consectetur aliquid omnis.</p>
+                                </div>
+                                <div class="buttonsContainer">
+                                    <button id="entregaTarefa" type="submit">
+                                        <img src="./icons/check-lg.svg" alt="">
+                                        <p>Entregar tarefa</p>
+                                    </button>
+                                    <button id="addArquivo" type="button">
+                                        <img src="./icons/plus-circle-fill (1).svg" alt="">
+                                        <p>Adicionar arquivo</p>
+                                    </button>
+                                </div>
+                            </div>
                             <div class="explicacaoTarefaContainer">
-                                <h3>Descrição:</h3>
-                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatum temporibus veniam optio, mollitia iusto dignissimos quae harum! Vitae, eaque dicta deleniti ab, fugit vel repudiandae minima consequatur consectetur aliquid omnis.</p>
+                                <h3>Critérios de avaliação:</h3>
+                                <ul>
+                                    <li>Critério 1</li>
+                                    <li>Critério 2</li>
+                                    <li>Critério 3</li>
+                                </ul>
                             </div>
-                            <div class="buttonsContainer">
-                                <button id="entregaTarefa" type="submit">
-                                    <img src="./icons/check-lg.svg" alt="">
-                                    <p>Entregar tarefa</p>
-                                </button>
-                                <button id="addArquivo" type="button">
-                                    <img src="./icons/plus-circle-fill (1).svg" alt="">
-                                    <p>Adicionar arquivo</p>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="explicacaoTarefaContainer">
-                            <h3>Critérios de avaliação:</h3>
-                            <ul>
-                                <li>Critério 1</li>
-                                <li>Critério 2</li>
-                                <li>Critério 3</li>
-                            </ul>
-                        </div>
-                        <div class="explicacaoTarefaContainer">
-                            <h3>Meu Feedback:</h3>
-                            <p>Ainda não há feedback</p>
+                            <div class="explicacaoTarefaContainer feedback">
+                                <h3>Meu Feedback:</h3>
+                                <p>Ainda não há feedback</p>
+                            </div>                            
                         </div>
                    </div>
                 </div>
-            </div>
+            </div>    
     </main>
+    <div id="modalEntregas" class="modal">
+        <div class="modal-content">
+          <h2>Entregas</h2>
+          <ul class="listaEntregas">
+            <li class="itemEntrega">
+              <div class="userInfo">
+                <img src="./icons/person-circle (1).svg" alt="Usuário">
+                <p>Nome de Usuário</p>
+                <span class="status entregue">Entregue</span>
+              </div>
+              <button class="verEntregaBtn">
+                Ver entrega →
+              </button>
+            </li>
+          </ul>
+          <button id="fecharModal">Fechar</button>
+        </div>
+      </div>
 </body>
 <script src="./script.js"></script>
 </html>
